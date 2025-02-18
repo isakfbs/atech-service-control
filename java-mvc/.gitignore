@@ -27,3 +27,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore Maven build output
+target/
+*/target/
+
+# Ignore system files
+.DS_Store

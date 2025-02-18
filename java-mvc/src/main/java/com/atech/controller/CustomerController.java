@@ -1,5 +1,5 @@
-package main.java.controller;
-import main.java.model.Customer;
+package main.java.com.atech.controller;
+import main.java.com.atech.model.Customer;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class CustomerController {
         customers = new ArrayList<>();
         nextId = 1;
     }
-    public void addCustomer(String name, String contactNumber, String email, String adress){
-        Customer customer = new Customer(nextId, name, contactNumber, email, adress);
+    public void addCustomer(String name, String phone, String email, String adress){
+        Customer customer = new Customer(nextId, name, phone, email, adress);
         customers.add(customer);
         nextId ++;
         System.out.println("Customer was added successfully!");

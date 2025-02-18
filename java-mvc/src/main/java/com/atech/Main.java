@@ -1,8 +1,8 @@
-package main.java;
+package main.java.com.atech;
 
 
-import main.java.controller.CustomerController;
-import main.java.view.CustomerView;
+import main.java.com.atech.controller.CustomerController;
+import main.java.com.atech.view.CustomerView;
 
 public class Main {
     public static void main(String[] args) {

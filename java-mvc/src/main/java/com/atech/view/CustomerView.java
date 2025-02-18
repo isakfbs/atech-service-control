@@ -1,7 +1,7 @@
-package main.java.view;
+package main.java.com.atech.view;
 
-import main.java.controller.CustomerController;
-import main.java.model.Customer;
+import main.java.com.atech.controller.CustomerController;
+import main.java.com.atech.model.Customer;
 
 import java.util.Scanner;
 
@@ -49,14 +49,14 @@ public class CustomerView {
     public void addCustomer(){
         System.out.println("Name: ");
         String name = scanner.nextLine();
-        System.out.println("Contact Number: ");
-        String contactNumber = scanner.nextLine();
+        System.out.println("Phone: ");
+        String phone = scanner.nextLine();
         System.out.println("Email: ");
         String email = scanner.nextLine();
         System.out.println("Address: ");
         String address = scanner.nextLine();
 
-        controller.addCustomer(name,contactNumber,email,address);
+        controller.addCustomer(name,phone,email,address);
     }
 
     private void showCustomersList() {
