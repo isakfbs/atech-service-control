@@ -1,5 +1,11 @@
 package main.java.com.atech.model;
 
+import main.java.com.atech.util.DatabaseUtil;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Customer {
     private int id;
     private String name;
@@ -13,6 +19,20 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.address = address;
+    }
+
+    public void save() {
+        String sql = "INSERT INTO CUSTOMERS (name, phone, email) VALUES (?, ?, ?)";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, phone);
+            stmt.setString(3, email);
+            stmt.executeUpdate();
+            System.out.println("Customer saved to the database.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getId() {
