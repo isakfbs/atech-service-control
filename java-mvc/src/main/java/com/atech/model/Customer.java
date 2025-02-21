@@ -21,7 +21,7 @@ public class Customer {
         this.address = address;
     }
 
-    public void save() {
+    public void saveInDatabase() {
         String sql = "INSERT INTO CUSTOMERS (name, phone, email) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

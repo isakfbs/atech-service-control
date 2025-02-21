@@ -1,10 +1,5 @@
 package main.java.com.atech.controller;
 import main.java.com.atech.model.Customer;
-import main.java.com.atech.util.DatabaseUtil;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,9 +13,8 @@ public class CustomerController {
         nextId = 1;
     }
     public void addCustomer(String name, String phone, String email, String adress){
-
         Customer customer = new Customer(nextId, name, phone, email, adress);
-        customer.save();
+//        customer.saveInDatabase();
         nextId ++;
     }
 
