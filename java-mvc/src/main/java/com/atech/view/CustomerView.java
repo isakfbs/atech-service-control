@@ -56,7 +56,7 @@ public class CustomerView {
         System.out.println("Address: ");
         String address = scanner.nextLine();
 
-        controller.addCustomer(name,phone,email,address);
+        controller.addCustomer(name,phone,email);
     }
 
     private void showCustomersList() {

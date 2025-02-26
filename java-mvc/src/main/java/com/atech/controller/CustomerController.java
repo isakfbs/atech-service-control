@@ -10,12 +10,10 @@ public class CustomerController {
 
     public CustomerController(){
         customers = new ArrayList<>();
-        nextId = 1;
+
     }
-    public void addCustomer(String name, String phone, String email, String adress){
-        Customer customer = new Customer(nextId, name, phone, email, adress);
-//        customer.saveInDatabase();
-        nextId ++;
+    public void addCustomer(String name, String phone, String email){
+        Customer customer = new Customer(name, phone, email);
     }
 
     public void listCustomer(){

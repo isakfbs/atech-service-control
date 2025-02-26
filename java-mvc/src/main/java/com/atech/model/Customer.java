@@ -1,5 +1,6 @@
 package main.java.com.atech.model;
 
+import main.java.com.atech.storage.CustomerStorage;
 import main.java.com.atech.util.DatabaseUtil;
 
 import java.sql.Connection;
@@ -11,28 +12,24 @@ public class Customer {
     private String name;
     private String phone;
     private String email;
-    private String address;
 
-    public Customer(int id, String name, String phone, String email, String address){
+    public Customer(String name, String phone, String email){
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
     }
 
-    public void saveInDatabase() {
-        String sql = "INSERT INTO CUSTOMERS (name, phone, email) VALUES (?, ?, ?)";
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, name);
-            stmt.setString(2, phone);
-            stmt.setString(3, email);
-            stmt.executeUpdate();
-            System.out.println("Customer saved to the database.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public Customer(int id, String name, String phone, String email){
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+    }
+
+
+    public void save(CustomerStorage storage) throws SQLException {
+        storage.save(this);
     }
 
     public int getId() {
@@ -67,11 +64,4 @@ public class Customer {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }
