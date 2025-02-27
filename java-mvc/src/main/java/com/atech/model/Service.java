@@ -1,8 +1,7 @@
 package main.java.com.atech.model;
 
-import main.java.com.atech.util.DatabaseUtil;
-
-import java.sql.*;
+import main.java.com.atech.repository.Repository;
+import main.java.com.atech.repository.ServiceMapper;
 import java.time.LocalDateTime;
 
 public class Service {
@@ -15,9 +14,10 @@ public class Service {
     private LocalDateTime endDate;
     private double cost;
 
-    public Service(int customerId, String description, String status,
+    public Service(int customerId, int deviceId, String description, String status,
                    LocalDateTime startDate, LocalDateTime endDate, Double cost){
         this.customerId = customerId;
+        this.deviceId = deviceId;
         this.description = description;
         this.status = status;
         this.startDate = startDate;
@@ -25,31 +25,52 @@ public class Service {
         this.cost = cost;
     }
 
-    public void saveInDatabase(){
-        String sql = "INSERT INTO SERVICES " +
-                "(customer_id, description, status, start_date, end_date,cost)" +
-                " VALUES (?, ?, ?, ?, ?, ?)";
-        try(Connection conn = DatabaseUtil.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
-        ){
-            stmt.setInt(1, customerId);
-            stmt.setString(2, description);
-            stmt.setString(3, status);
-            stmt.setObject(4, startDate);
-            stmt.setObject(5, endDate);
-            stmt.setDouble(6, cost);
-            stmt.executeUpdate();
-
-            try(ResultSet rs = stmt.getGeneratedKeys()){
-                if(rs.next()){
-                    this.id = rs.getInt(1);
-                }
-            }
-            System.out.println("Service saved to the database");
-
-        }catch (SQLException e){
-            System.err.println("Error saving service: " + e.getMessage());
-        }
+    public Service(int id, int customerId, int deviceId, String description, String status,
+                   LocalDateTime startDate, LocalDateTime endDate, Double cost){
+        this(customerId,deviceId, description,status,startDate,endDate,cost);
+        this.id = id;
     }
 
+    public void save(){
+        String[] columns = {"customer_id", "device_id", "description", "status", "start_date", "end_date","cost"};
+        Repository<Service> repository =
+                new Repository<>("SERVICES",columns, new ServiceMapper());
+        repository.save(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public int getDeviceId() {
+        return deviceId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public double getCost() {
+        return cost;
+    }
 }

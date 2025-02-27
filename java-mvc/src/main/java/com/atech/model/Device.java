@@ -1,7 +1,8 @@
 package main.java.com.atech.model;
 
-import main.java.com.atech.util.DatabaseUtil;
-import java.sql.*;
+import main.java.com.atech.repository.DeviceMapper;
+import main.java.com.atech.repository.Repository;
+
 
 public class Device {
     private int id;
@@ -19,25 +20,44 @@ public class Device {
         this.serialNumber = serialNumber;
     }
 
-    public void saveInDatabase(){
-        String sql = "INSERT INTO DEVICES (fk_customer_id, type, brand, model, serial_number) VALUES (?,?,?,?,?)";
-        try(Connection conn = DatabaseUtil.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
-            stmt.setInt(1, customerId);
-            stmt.setString(2, type);
-            stmt.setString(3, brand);
-            stmt.setString(4, model);
-            stmt.setString(5, serialNumber);
-            stmt.executeUpdate();
+    public Device(int id ,int customerID, String type, String brand, String model, String serialNumber){
+        this(customerID,type,brand,model,serialNumber);
+        this.id = id;
+    }
 
-            try(ResultSet rs = stmt.getGeneratedKeys()){
-                if(rs.next()){
-                    this.id = rs.getInt(1);
-                }
-            }
-            System.out.println("Device saved to the database.");
-        } catch (SQLException e) {
-            System.err.println("Error saving device: " + e.getMessage());
-        }
+    public void save(){
+        String[] columns = {"fk_customer_id", "type", "brand", "model", "serial_number"};
+        Repository<Device> repository =
+                new Repository<>("DEVICES", columns, new DeviceMapper());
+        repository.save(this);
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
     }
 }

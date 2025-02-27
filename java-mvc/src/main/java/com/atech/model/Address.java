@@ -26,13 +26,8 @@ public class Address {
     }
     public Address(int id, int customerId, String street, String city,
                    String state, String postalCode, String country){
+        this(customerId,street,city,state,postalCode,country);
         this.id = id;
-        this.customerId = customerId;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
-        this.country = country;
     }
 
     public void save(){

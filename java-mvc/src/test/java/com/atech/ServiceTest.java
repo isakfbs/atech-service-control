@@ -11,9 +11,9 @@ public class ServiceTest {
 
     @Test
     public void testSaveService(){
-        Service service = new Service(1,
+        Service service = new Service(1,1,
                 "Screen replacement","Pending", LocalDateTime.now(),null,150.00);
-        service.saveInDatabase();
+        service.save();
 
         assertTrue("Service should be saved successfully.", true);
     }
