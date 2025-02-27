@@ -1,11 +1,7 @@
 package main.java.com.atech.model;
 
-import main.java.com.atech.storage.CustomerStorage;
-import main.java.com.atech.util.DatabaseUtil;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import main.java.com.atech.repository.CustomerMapper;
+import main.java.com.atech.repository.Repository;
 
 public class Customer {
     private int id;
@@ -14,7 +10,6 @@ public class Customer {
     private String email;
 
     public Customer(String name, String phone, String email){
-        this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -27,9 +22,11 @@ public class Customer {
         this.email = email;
     }
 
-
-    public void save(CustomerStorage storage) throws SQLException {
-        storage.save(this);
+    public void save() {
+        String[] columns = {"name","phone","email"};
+        Repository<Customer> repository = new Repository<>("CUSTOMERS",
+                columns, new CustomerMapper());
+        repository.save(this);
     }
 
     public int getId() {

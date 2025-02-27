@@ -1,5 +1,7 @@
 package main.java.com.atech.model;
 
+import main.java.com.atech.repository.AddressMapper;
+import main.java.com.atech.repository.Repository;
 import main.java.com.atech.util.DatabaseUtil;
 
 import java.sql.*;
@@ -22,31 +24,53 @@ public class Address {
         this.postalCode = postalCode;
         this.country = country;
     }
-
-    public void saveInDataBase(){
-        String sql = "INSERT INTO ADDRESSES " +
-                "(fk_customer_id, street, city, state, postal_code, country) " +
-                "VALUES (?,?,?,?,?,?)";
-        try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
-            stmt.setInt(1, customerId);
-            stmt.setString(2, street);
-            stmt.setString(3, city);
-            stmt.setString(4, state);
-            stmt.setString(5, postalCode);
-            stmt.setString(6, country);
-            stmt.executeUpdate();
-
-            try (ResultSet rs = stmt.getGeneratedKeys()){
-                if(rs.next()) {
-                    this.id = rs.getInt(1);
-                }
-            }
-            System.out.println("Address saved to the database");
-        } catch (SQLException e){
-            System.err.println("Error saving address: " + e.getMessage());
-        }
+    public Address(int id, int customerId, String street, String city,
+                   String state, String postalCode, String country){
+        this.id = id;
+        this.customerId = customerId;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
     }
 
+    public void save(){
+        String[] columns = {"fk_customer_id, street, city, state, postal_code, country"};
+        Repository<Address> repository = new Repository<>("ADDRESSES", columns, new AddressMapper());
+        repository.save(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
 

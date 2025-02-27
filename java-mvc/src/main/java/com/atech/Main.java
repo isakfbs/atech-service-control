@@ -16,8 +16,8 @@ public class Main {
         CustomerController controller = new CustomerController();
         CustomerView view = new CustomerView(controller);
         CustomerStorage storage = StorageFactory.getStorage("database");
-        Customer customer = new Customer("Alice Johnson", "5551234567", "alice.johnson@example.com");
-        customer.save(storage);
+        Customer customer = new Customer( "Mariana", "985468789", "mari@example.com");
+        customer.save();
         System.out.println("Customer ID: " + customer.getId());
         view.showMenu();
 
