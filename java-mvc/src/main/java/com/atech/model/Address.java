@@ -30,12 +30,6 @@ public class Address {
         this.id = id;
     }
 
-    public void save(){
-        String[] columns = {"fk_customer_id, street, city, state, postal_code, country"};
-        Repository<Address> repository = new Repository<>("ADDRESSES", columns, new AddressMapper());
-        repository.save(this);
-    }
-
     public int getId() {
         return id;
     }

@@ -1,9 +1,5 @@
 package main.java.com.atech.model;
 
-import main.java.com.atech.repository.DeviceMapper;
-import main.java.com.atech.repository.Repository;
-
-
 public class Device {
     private int id;
     private int customerId;
@@ -24,14 +20,6 @@ public class Device {
         this(customerID,type,brand,model,serialNumber);
         this.id = id;
     }
-
-    public void save(){
-        String[] columns = {"fk_customer_id", "type", "brand", "model", "serial_number"};
-        Repository<Device> repository =
-                new Repository<>("DEVICES", columns, new DeviceMapper());
-        repository.save(this);
-    }
-
 
     public int getId() {
         return id;

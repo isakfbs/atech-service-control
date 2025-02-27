@@ -31,13 +31,6 @@ public class Service {
         this.id = id;
     }
 
-    public void save(){
-        String[] columns = {"customer_id", "device_id", "description", "status", "start_date", "end_date","cost"};
-        Repository<Service> repository =
-                new Repository<>("SERVICES",columns, new ServiceMapper());
-        repository.save(this);
-    }
-
     public int getId() {
         return id;
     }

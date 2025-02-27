@@ -1,40 +1,40 @@
 package main.java.com.atech.controller;
 import main.java.com.atech.model.Customer;
-import java.util.List;
-import java.util.ArrayList;
+import main.java.com.atech.repository.CustomerMapper;
+import main.java.com.atech.repository.Repository;
+
 
 
 public class CustomerController {
-    private List<Customer> customers;
-    private int nextId;
+    private Repository<Customer> customerRepository;
 
     public CustomerController(){
-        customers = new ArrayList<>();
-
+        String[] columns = {"name","phone","email"};
+        this.customerRepository = new Repository<>("CUSTOMERS", columns, new CustomerMapper());
     }
-    public void addCustomer(String name, String phone, String email){
-        Customer customer = new Customer(name, phone, email);
 
+    public void saveCustomer(Customer customer){
+        customerRepository.save(customer);
     }
 
     public void listCustomer(){
-        if (customers.isEmpty()){
-            System.out.println("Customers list is empty");
-        }else{
-            for (Customer customer : customers){
-                System.out.println(customer.getId() + " - " + customer.getName());
-            }
-        }
+//        if (customers.isEmpty()){
+//            System.out.println("Customers list is empty");
+//        }else{
+//            for (Customer customer : customers){
+//                System.out.println(customer.getId() + " - " + customer.getName());
+//            }
+//        }
     }
 
-    public Customer searchCustomerById(int id){
-        for (Customer customer: customers){
-            if(customer.getId() == id){
-                return customer;
-            }
-        }
-        return null;
-    }
+//    public Customer searchCustomerById(int id){
+////        for (Customer customer: customers){
+////            if(customer.getId() == id){
+////                return customer;
+////            }
+////        }
+////        return null;
+//    }
 
 }
 

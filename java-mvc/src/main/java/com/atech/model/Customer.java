@@ -1,8 +1,5 @@
 package main.java.com.atech.model;
 
-import main.java.com.atech.repository.CustomerMapper;
-import main.java.com.atech.repository.Repository;
-
 public class Customer {
     private int id;
     private String name;
@@ -18,13 +15,6 @@ public class Customer {
     public Customer(int id, String name, String phone, String email){
         this(name,phone,email);
         this.id = id;
-    }
-
-    public void save() {
-        String[] columns = {"name","phone","email"};
-        Repository<Customer> repository =
-                new Repository<>("CUSTOMERS", columns, new CustomerMapper());
-        repository.save(this);
     }
 
     public int getId() {

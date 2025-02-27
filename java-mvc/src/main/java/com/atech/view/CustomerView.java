@@ -53,10 +53,9 @@ public class CustomerView {
         String phone = scanner.nextLine();
         System.out.println("Email: ");
         String email = scanner.nextLine();
-        System.out.println("Address: ");
-        String address = scanner.nextLine();
 
-        controller.addCustomer(name,phone,email);
+        controller.saveCustomer(new Customer(name,phone,email));
+        System.out.println("Customer saved successfully");
     }
 
     private void showCustomersList() {
@@ -69,12 +68,12 @@ public class CustomerView {
         int id = scanner.nextInt();
         scanner.nextLine();
 
-        Customer customer = controller.searchCustomerById(id);
-        if(customer != null){
-            System.out.println("Customer found: " + customer.getName());
-        }else{
-            System.out.println("Customer not found!");
-        }
+//        Customer customer = controller.searchCustomerById(id);
+//        if(customer != null){
+//            System.out.println("Customer found: " + customer.getName());
+//        }else{
+//            System.out.println("Customer not found!");
+//        }
     }
 }
 
