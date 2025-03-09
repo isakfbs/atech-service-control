@@ -1,7 +1,7 @@
-package main.java.com.atech.controller;
-import main.java.com.atech.model.Customer;
-import main.java.com.atech.repository.CustomerMapper;
-import main.java.com.atech.repository.Repository;
+package com.atech.controller;
+import com.atech.model.Customer;
+import com.atech.repository.CustomerMapper;
+import com.atech.repository.Repository;
 
 
 

@@ -1,7 +1,7 @@
-package main.java.com.atech.view;
+package com.atech.view;
 
-import main.java.com.atech.controller.CustomerController;
-import main.java.com.atech.model.Customer;
+import com.atech.controller.CustomerController;
+import com.atech.model.Customer;
 
 import java.util.Scanner;
 

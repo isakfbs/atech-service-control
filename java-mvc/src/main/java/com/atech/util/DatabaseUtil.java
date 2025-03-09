@@ -1,7 +1,7 @@
-package main.java.com.atech.util;
+package com.atech.util;
 
 import java.sql.*;
-import java.util.function.Consumer;
+
 
 public class DatabaseUtil {
     private static final String URL = "jdbc:mysql://localhost:3306/service_management";

@@ -1,4 +1,4 @@
-package main.java.com.atech.repository;
+package com.atech.repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

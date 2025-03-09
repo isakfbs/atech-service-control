@@ -1,8 +1,8 @@
-package main.java.com.atech.controller;
+package com.atech.controller;
 
-import main.java.com.atech.model.Address;
-import main.java.com.atech.repository.AddressMapper;
-import main.java.com.atech.repository.Repository;
+import com.atech.model.Address;
+import com.atech.repository.AddressMapper;
+import com.atech.repository.Repository;
 
 public class AddressController {
     private Repository<Address> addressRepository;

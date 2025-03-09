@@ -1,7 +1,7 @@
-package test.java.com.atech;
+package com.atech;
 
-import main.java.com.atech.controller.ServiceController;
-import main.java.com.atech.model.Service;
+import com.atech.controller.ServiceController;
+import com.atech.model.Service;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

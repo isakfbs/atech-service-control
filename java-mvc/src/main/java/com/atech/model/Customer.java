@@ -1,4 +1,4 @@
-package main.java.com.atech.model;
+package com.atech.model;
 
 public class Customer {
     private int id;

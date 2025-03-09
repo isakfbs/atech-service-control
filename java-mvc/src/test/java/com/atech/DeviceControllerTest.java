@@ -1,7 +1,7 @@
-package test.java.com.atech;
+package com.atech;
 
-import main.java.com.atech.controller.DeviceController;
-import main.java.com.atech.model.Device;
+import com.atech.controller.DeviceController;
+import com.atech.model.Device;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

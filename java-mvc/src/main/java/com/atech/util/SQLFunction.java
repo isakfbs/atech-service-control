@@ -1,4 +1,4 @@
-package main.java.com.atech.util;
+package com.atech.util;
 
 import java.sql.SQLException;
 

@@ -1,7 +1,4 @@
-package main.java.com.atech.model;
-
-import main.java.com.atech.repository.Repository;
-import main.java.com.atech.repository.ServiceMapper;
+package com.atech.model;
 import java.time.LocalDateTime;
 
 public class Service {

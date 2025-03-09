@@ -1,7 +1,6 @@
-package main.java.com.atech.repository;
+package com.atech.repository;
 
-import main.java.com.atech.model.Address;
-
+import com.atech.model.Address;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,6 +1,6 @@
-package main.java.com.atech.repository;
+package com.atech.repository;
 
-import main.java.com.atech.model.Customer;
+import com.atech.model.Customer;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,8 +1,8 @@
-package main.java.com.atech.controller;
+package com.atech.controller;
 
-import main.java.com.atech.model.Service;
-import main.java.com.atech.repository.Repository;
-import main.java.com.atech.repository.ServiceMapper;
+import com.atech.model.Service;
+import com.atech.repository.Repository;
+import com.atech.repository.ServiceMapper;
 
 public class ServiceController {
     private Repository<Service> serviceRepository;

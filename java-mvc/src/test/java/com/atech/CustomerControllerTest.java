@@ -1,10 +1,8 @@
-package test.java.com.atech;
+package com.atech;
 
-import main.java.com.atech.controller.CustomerController;
-import main.java.com.atech.model.Customer;
+import com.atech.controller.CustomerController;
+import com.atech.model.Customer;
 import org.junit.Test;
-
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class CustomerControllerTest {

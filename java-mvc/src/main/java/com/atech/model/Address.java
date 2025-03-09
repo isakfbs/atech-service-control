@@ -1,10 +1,4 @@
-package main.java.com.atech.model;
-
-import main.java.com.atech.repository.AddressMapper;
-import main.java.com.atech.repository.Repository;
-import main.java.com.atech.util.DatabaseUtil;
-
-import java.sql.*;
+package com.atech.model;
 
 public class Address {
     private int id;

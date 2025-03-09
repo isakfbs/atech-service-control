@@ -1,8 +1,8 @@
-package main.java.com.atech;
+package com.atech;
 
 
-import main.java.com.atech.controller.CustomerController;
-import main.java.com.atech.view.CustomerView;
+import com.atech.controller.CustomerController;
+import com.atech.view.CustomerView;
 
 import java.sql.SQLException;
 

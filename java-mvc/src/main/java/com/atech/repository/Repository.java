@@ -1,6 +1,6 @@
-package main.java.com.atech.repository;
+package com.atech.repository;
 
-import main.java.com.atech.util.DatabaseUtil;
+import com.atech.util.DatabaseUtil;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;

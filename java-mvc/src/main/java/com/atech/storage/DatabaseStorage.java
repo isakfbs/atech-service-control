@@ -1,6 +1,6 @@
-package main.java.com.atech.storage;
-import main.java.com.atech.model.Customer;
-import main.java.com.atech.util.DatabaseUtil;
+package com.atech.storage;
+import com.atech.model.Customer;
+import com.atech.util.DatabaseUtil;
 import java.sql.*;
 
 public class DatabaseStorage implements CustomerStorage{

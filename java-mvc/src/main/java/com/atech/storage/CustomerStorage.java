@@ -1,6 +1,6 @@
-package main.java.com.atech.storage;
+package com.atech.storage;
 
-import main.java.com.atech.model.Customer;
+import com.atech.model.Customer;
 
 import java.sql.SQLException;
 

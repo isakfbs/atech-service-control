@@ -1,8 +1,8 @@
-package main.java.com.atech.controller;
+package com.atech.controller;
 
-import main.java.com.atech.model.Device;
-import main.java.com.atech.repository.DeviceMapper;
-import main.java.com.atech.repository.Repository;
+import com.atech.model.Device;
+import com.atech.repository.DeviceMapper;
+import com.atech.repository.Repository;
 
 public class DeviceController {
     private Repository<Device> deviceRepository;

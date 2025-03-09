@@ -1,4 +1,4 @@
-package main.java.com.atech.storage;
+package com.atech.storage;
 
 public class StorageFactory {
     public static CustomerStorage getStorage(String type) {
